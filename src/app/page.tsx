@@ -4,9 +4,11 @@ import { CalendarDays, MapPin, Utensils, Waves } from "lucide-react";
 import { PageHero, SectionHeading } from "@/components/public/page-hero";
 import { PublicShell } from "@/components/public/site-shell";
 import { GalleryTiles } from "@/components/public/image-tiles";
+import { ReviewGrid } from "@/components/public/review-card";
 import { RoomGrid } from "@/components/public/room-card";
 import {
   galleryImages,
+  guestReviews,
   hotel,
   hotelStats,
   rooms,
@@ -119,6 +121,22 @@ export default function Home() {
         </section>
 
         <section className="section section-muted">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Guest reviews"
+              title="What guests say about the stay"
+              copy="A few guest notes about rooms, dining, conference stays, and the hotel team's service."
+            />
+            <ReviewGrid reviews={guestReviews.filter((review) => review.status === "published")} />
+            <div className="center-action">
+              <Link className="button button-outline focus-ring" href="/reviews">
+                Read all reviews
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
           <div className="container">
             <SectionHeading
               eyebrow="Gallery"

@@ -38,6 +38,17 @@ export type ContentFeature = {
   image?: HotelImage;
 };
 
+export type GuestReview = {
+  id: string;
+  guestName: string;
+  guestLocation: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  quote: string;
+  stayType: string;
+  status: "draft" | "published" | "hidden";
+  image: HotelImage;
+};
+
 function asset(id: AssetId, alt: string): HotelImage {
   const found = importedLuxuryTouchAssets.find((item) => item.id === id);
 
@@ -91,6 +102,42 @@ export const whyBookWithUs: ContentFeature[] = [
     title: "Value for your money",
     description:
       "Room categories start from GH320 per night, giving guests clear options across standard, delux, twin, and suite stays.",
+  },
+];
+
+export const guestReviews: GuestReview[] = [
+  {
+    id: "review-business-stay",
+    guestName: "Akua Mensah",
+    guestLocation: "Accra",
+    rating: 5,
+    quote:
+      "The room was clean, quiet, and close to the places I needed in Tarkwa. Staff were quick to help and the restaurant made the stay easy.",
+    stayType: "Business stay",
+    status: "published",
+    image: asset("135-user1-c7a7e2a2f4", "Guest review portrait"),
+  },
+  {
+    id: "review-family-weekend",
+    guestName: "Kwame Boateng",
+    guestLocation: "Takoradi",
+    rating: 5,
+    quote:
+      "The pool, lounge, and restaurant gave us everything in one place. It felt relaxed but still well organized for a family weekend.",
+    stayType: "Family weekend",
+    status: "published",
+    image: asset("136-user2-17ec820a1d", "Guest review portrait"),
+  },
+  {
+    id: "review-meeting-trip",
+    guestName: "Esi Owusu",
+    guestLocation: "Kumasi",
+    rating: 4,
+    quote:
+      "We used the conference room and booked rooms for our team. Having meals, rooms, and meeting space together saved time.",
+    stayType: "Meeting trip",
+    status: "published",
+    image: asset("137-user3-a690e8595f", "Guest review portrait"),
   },
 ];
 

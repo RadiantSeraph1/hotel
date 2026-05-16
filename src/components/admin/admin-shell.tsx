@@ -4,6 +4,7 @@ import {
   Hotel,
   ImageIcon,
   LayoutDashboard,
+  MessageSquareText,
   Settings,
 } from "lucide-react";
 import Link from "next/link";
@@ -14,6 +15,7 @@ const navItems = [
   { href: "/admin/bookings", label: "Booking Requests", icon: CalendarCheck },
   { href: "/admin/rooms", label: "Rooms", icon: Hotel },
   { href: "/admin/gallery", label: "Gallery", icon: ImageIcon },
+  { href: "/admin/reviews", label: "Reviews", icon: MessageSquareText },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 

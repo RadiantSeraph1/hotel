@@ -472,7 +472,8 @@ img {
 .image-tiles,
 .gallery-grid,
 .facility-cards,
-.story-grid {
+.story-grid,
+.review-grid {
   display: grid;
   gap: 18px;
 }
@@ -599,6 +600,54 @@ img {
 
 .story-grid {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.review-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.review-card {
+  display: grid;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.review-header img {
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.review-header h3,
+.review-header p,
+.review-quote {
+  margin: 0;
+}
+
+.review-header h3 {
+  color: var(--brand-dark);
+  font-size: 18px;
+}
+
+.review-header p,
+.review-quote {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.review-stars {
+  display: flex;
+  gap: 4px;
+  color: var(--gold);
 }
 
 .story-card {
@@ -868,6 +917,7 @@ textarea {
   .gallery-grid,
   .facility-cards,
   .story-grid,
+  .review-grid,
   .room-detail-grid,
   .booking-grid,
   .contact-grid,
@@ -933,6 +983,7 @@ textarea {
   .gallery-grid,
   .facility-cards,
   .story-grid,
+  .review-grid,
   .room-detail-grid,
   .booking-grid,
   .contact-grid,

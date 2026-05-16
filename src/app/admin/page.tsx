@@ -4,6 +4,7 @@ import {
   notificationLogs,
   seededBookings,
   seededGallery,
+  seededReviews,
   seededRooms,
 } from "@/components/admin/admin-data";
 import { BookingTable } from "@/components/admin/booking-table";
@@ -74,6 +75,13 @@ export default function AdminDashboardPage() {
               <p className="font-semibold text-[#3e2a1d]">Gallery</p>
               <p className="mt-1 text-[#6f6a60]">
                 {seededGallery.length} seeded images with visible/hidden state.
+              </p>
+            </div>
+            <div className="rounded-md bg-[#f8f3ec] p-4">
+              <p className="font-semibold text-[#3e2a1d]">Reviews</p>
+              <p className="mt-1 text-[#6f6a60]">
+                {seededReviews.length} seeded guest reviews,{" "}
+                {seededReviews.filter((review) => review.status === "published").length} published.
               </p>
             </div>
             {Object.entries(adminRoles).map(([role, label]) => (

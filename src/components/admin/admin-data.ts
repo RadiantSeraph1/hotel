@@ -46,6 +46,17 @@ export type GalleryItem = {
   image: string;
 };
 
+export type AdminReview = {
+  id: string;
+  guestName: string;
+  guestLocation: string;
+  rating: number;
+  quote: string;
+  stayType: string;
+  status: "draft" | "published" | "hidden";
+  image: string;
+};
+
 export type NotificationLog = {
   id: string;
   bookingId: string;
@@ -227,6 +238,42 @@ export const seededGallery: GalleryItem[] = [
     category: "Lounge",
     status: "hidden",
     image: "/imported/luxurytouchhotel/21-lounge1-8ef19b2ce1.jpg",
+  },
+];
+
+export const seededReviews: AdminReview[] = [
+  {
+    id: "review-business-stay",
+    guestName: "Akua Mensah",
+    guestLocation: "Accra",
+    rating: 5,
+    quote:
+      "The room was clean, quiet, and close to the places I needed in Tarkwa. Staff were quick to help and the restaurant made the stay easy.",
+    stayType: "Business stay",
+    status: "published",
+    image: "/imported/luxurytouchhotel/135-user1-c7a7e2a2f4.jpg",
+  },
+  {
+    id: "review-family-weekend",
+    guestName: "Kwame Boateng",
+    guestLocation: "Takoradi",
+    rating: 5,
+    quote:
+      "The pool, lounge, and restaurant gave us everything in one place. It felt relaxed but still well organized for a family weekend.",
+    stayType: "Family weekend",
+    status: "published",
+    image: "/imported/luxurytouchhotel/136-user2-17ec820a1d.jpg",
+  },
+  {
+    id: "review-meeting-trip",
+    guestName: "Esi Owusu",
+    guestLocation: "Kumasi",
+    rating: 4,
+    quote:
+      "We used the conference room and booked rooms for our team. Having meals, rooms, and meeting space together saved time.",
+    stayType: "Meeting trip",
+    status: "published",
+    image: "/imported/luxurytouchhotel/137-user3-a690e8595f.jpg",
   },
 ];
 
