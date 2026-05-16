@@ -23,7 +23,7 @@ export default function RestaurantPage() {
             <SectionHeading
               eyebrow="Service"
               title="Food, bar, and guest lounge spaces"
-              copy="The restaurant page is ready for CMS-managed menus later, while the MVP focuses on the real dining and lounge spaces available at the hotel."
+              copy="The original website promised local and continental dishes, drinks, cocktails, shakes, kebabs, and an executive lounge for relaxed meetings. That content is now structured for CMS editing."
             />
             <div className="feature-strip">
               <div>
@@ -36,7 +36,7 @@ export default function RestaurantPage() {
               </div>
               <div>
                 <Clock size={22} aria-hidden="true" />
-                <span>Ask staff for current service times</span>
+                <span>Menu updates coming through CMS</span>
               </div>
             </div>
           </div>

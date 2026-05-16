@@ -29,6 +29,10 @@ export default function ContactPage() {
                   <Phone size={22} aria-hidden="true" />
                   <span>{hotel.phone}</span>
                 </a>
+                <a className="contact-row focus-ring" href={`tel:${hotel.alternatePhone.replace(/\s/g, "")}`}>
+                  <Phone size={22} aria-hidden="true" />
+                  <span>{hotel.alternatePhone}</span>
+                </a>
                 <a className="contact-row focus-ring" href={`mailto:${hotel.email}`}>
                   <Mail size={22} aria-hidden="true" />
                   <span>{hotel.email}</span>

@@ -5,7 +5,14 @@ import { PageHero, SectionHeading } from "@/components/public/page-hero";
 import { PublicShell } from "@/components/public/site-shell";
 import { GalleryTiles } from "@/components/public/image-tiles";
 import { RoomGrid } from "@/components/public/room-card";
-import { facilities, galleryImages, hotel, rooms } from "@/lib/content/hotel-content";
+import {
+  galleryImages,
+  hotel,
+  hotelStats,
+  rooms,
+  serviceHighlights,
+  whyBookWithUs,
+} from "@/lib/content/hotel-content";
 
 export default function Home() {
   const featuredRooms = rooms.slice(0, 3);
@@ -44,6 +51,17 @@ export default function Home() {
         </section>
 
         <section className="section">
+          <div className="container stats-grid">
+            {hotelStats.map((stat) => (
+              <div key={stat.label}>
+                <span className="stat-value">{stat.value}</span>
+                <span className="stat-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
           <div className="container">
             <SectionHeading
               eyebrow="Rooms and suites"
@@ -62,7 +80,7 @@ export default function Home() {
         <section className="split-section">
           <div className="container split-grid">
             <div className="split-media">
-              <Image src={facilities[1].image.src} alt={facilities[1].image.alt} fill sizes="(min-width: 900px) 50vw, 100vw" />
+              <Image src={serviceHighlights[1].image!.src} alt={serviceHighlights[1].image!.alt} fill sizes="(min-width: 900px) 50vw, 100vw" />
             </div>
             <div className="split-copy">
               <p className="eyebrow">Facilities</p>
@@ -71,7 +89,7 @@ export default function Home() {
                 Luxury Touch Hotel supports business and leisure guests with practical facilities on site, keeping meetings, meals, and relaxation close to the room.
               </p>
               <div className="facility-list">
-                {facilities.map((facility) => (
+                {serviceHighlights.map((facility) => (
                   <div key={facility.title}>
                     <h3>{facility.title}</h3>
                     <p>{facility.description}</p>
@@ -83,6 +101,24 @@ export default function Home() {
         </section>
 
         <section className="section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Why book with us"
+              title="Royal treatment, practical value, and a true Tarkwa getaway"
+              copy="The original hotel promise is now presented as clear, editable content instead of footer-only copy."
+            />
+            <div className="why-grid">
+              {whyBookWithUs.map((item) => (
+                <div key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-muted">
           <div className="container">
             <SectionHeading
               eyebrow="Gallery"

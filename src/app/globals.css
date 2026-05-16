@@ -286,7 +286,9 @@ img {
 }
 
 .quick-panel,
-.feature-strip {
+.feature-strip,
+.stats-grid,
+.why-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
@@ -298,7 +300,9 @@ img {
 }
 
 .quick-panel > div,
-.feature-strip > div {
+.feature-strip > div,
+.stats-grid > div,
+.why-grid > div {
   display: flex;
   min-height: 96px;
   align-items: center;
@@ -313,6 +317,39 @@ img {
 .feature-strip svg {
   color: var(--accent);
   flex: 0 0 auto;
+}
+
+.stats-grid > div,
+.why-grid > div {
+  display: grid;
+  align-content: start;
+}
+
+.stat-value {
+  color: var(--brand);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-label,
+.why-grid h3 {
+  color: var(--brand-dark);
+  font-weight: 900;
+}
+
+.why-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.why-grid h3,
+.why-grid p {
+  margin: 0;
+}
+
+.why-grid p {
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 .room-grid {
@@ -825,6 +862,8 @@ textarea {
 
   .quick-panel,
   .feature-strip,
+  .stats-grid,
+  .why-grid,
   .room-grid,
   .gallery-grid,
   .facility-cards,
@@ -888,6 +927,8 @@ textarea {
 
   .quick-panel,
   .feature-strip,
+  .stats-grid,
+  .why-grid,
   .room-grid,
   .gallery-grid,
   .facility-cards,

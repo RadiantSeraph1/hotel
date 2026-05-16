@@ -55,6 +55,14 @@ export default async function BookingPage({
               <Link className="text-link focus-ring" href="/contact">
                 Contact the hotel instead
               </Link>
+              <div className="contact-list">
+                <a className="contact-row focus-ring" href={`tel:${hotel.phone}`}>
+                  {hotel.phone}
+                </a>
+                <a className="contact-row focus-ring" href={`mailto:${hotel.email}`}>
+                  {hotel.email}
+                </a>
+              </div>
             </aside>
           </div>
         </section>
