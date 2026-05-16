@@ -1,62 +1,98 @@
+import Image from "next/image";
 import Link from "next/link";
+import { CalendarDays, MapPin, Utensils, Waves } from "lucide-react";
+import { PageHero, SectionHeading } from "@/components/public/page-hero";
+import { PublicShell } from "@/components/public/site-shell";
+import { GalleryTiles } from "@/components/public/image-tiles";
+import { RoomGrid } from "@/components/public/room-card";
+import { facilities, galleryImages, hotel, rooms } from "@/lib/content/hotel-content";
 
 export default function Home() {
+  const featuredRooms = rooms.slice(0, 3);
+
   return (
-    <main>
-      <section className="container" style={{ padding: "96px 0" }}>
-        <p
-          style={{
-            margin: "0 0 12px",
-            color: "var(--accent)",
-            fontSize: 14,
-            fontWeight: 700,
-            letterSpacing: 0,
-            textTransform: "uppercase",
-          }}
-        >
-          Tarkwa, Ghana
-        </p>
-        <h1
-          style={{
-            margin: 0,
-            maxWidth: 760,
-            color: "var(--brand-dark)",
-            fontSize: "clamp(44px, 8vw, 84px)",
-            lineHeight: 0.95,
-            letterSpacing: 0,
-          }}
-        >
-          Luxury Touch Hotel
-        </h1>
-        <p
-          style={{
-            maxWidth: 640,
-            margin: "24px 0 32px",
-            color: "var(--muted)",
-            fontSize: 20,
-            lineHeight: 1.55,
-          }}
-        >
-          A refreshed hotel website and CMS is being built here, with imported
-          hotel assets, room pages, booking requests, and staff admin tools.
-        </p>
-        <Link
-          className="focus-ring"
-          href="/booking"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            minHeight: 48,
-            padding: "0 22px",
-            borderRadius: 8,
-            background: "var(--accent)",
-            color: "#fff",
-            fontWeight: 700,
-          }}
-        >
-          Request a booking
-        </Link>
-      </section>
-    </main>
+    <PublicShell>
+      <main>
+        <PageHero
+          eyebrow={`${hotel.location} · ${hotel.area}`}
+          title={hotel.name}
+          copy="A refined Tarkwa stay with comfortable rooms, dining, lounge spaces, swimming pool, and conference facilities close to the University of Mines and Technology."
+          image={hotel.heroImages[0]}
+          primaryAction={{ href: "/booking", label: "Request booking" }}
+          secondaryAction={{ href: "/rooms", label: "View rooms" }}
+        />
+
+        <section className="section">
+          <div className="container quick-panel">
+            <div>
+              <MapPin size={22} aria-hidden="true" />
+              <span>{hotel.area}</span>
+            </div>
+            <div>
+              <CalendarDays size={22} aria-hidden="true" />
+              <span>Check-in {hotel.checkIn}</span>
+            </div>
+            <div>
+              <Utensils size={22} aria-hidden="true" />
+              <span>Restaurant and bar</span>
+            </div>
+            <div>
+              <Waves size={22} aria-hidden="true" />
+              <span>Pool and lounge</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Rooms and suites"
+              title="Stay options for work, rest, and longer visits"
+              copy="Compare the main room categories and send a request for the dates you need. Hotel staff will confirm current availability and rate."
+            />
+            <RoomGrid rooms={featuredRooms} />
+            <div className="center-action">
+              <Link className="button button-outline focus-ring" href="/rooms">
+                See all rooms
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="split-section">
+          <div className="container split-grid">
+            <div className="split-media">
+              <Image src={facilities[1].image.src} alt={facilities[1].image.alt} fill sizes="(min-width: 900px) 50vw, 100vw" />
+            </div>
+            <div className="split-copy">
+              <p className="eyebrow">Facilities</p>
+              <h2>Dining, lounge, pool, and meeting spaces in one hotel</h2>
+              <p>
+                Luxury Touch Hotel supports business and leisure guests with practical facilities on site, keeping meetings, meals, and relaxation close to the room.
+              </p>
+              <div className="facility-list">
+                {facilities.map((facility) => (
+                  <div key={facility.title}>
+                    <h3>{facility.title}</h3>
+                    <p>{facility.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Gallery"
+              title="A first look at the hotel"
+              copy="Rooms, restaurant, lounge, pool, and shared guest spaces from the imported Luxury Touch Hotel media library."
+            />
+            <GalleryTiles images={galleryImages.slice(0, 8)} />
+          </div>
+        </section>
+      </main>
+    </PublicShell>
   );
 }
